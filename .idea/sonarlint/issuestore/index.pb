@@ -1,6 +1,4 @@
 
-S
-#src/main/java/org/example/Main.java,0\b\0ba1b9c7a4878802f938e331cc2d8a042087ec6b
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 Å
@@ -8,10 +6,6 @@ Q.idea/sonarlint/securityhotspotstore/4/4/442292b8a7efeabbe4cc176709b833b1792140
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-w
-G.idea/sonarlint/issuestore/0/b/0ba1b9c7a4878802f938e331cc2d8a042087ec6b,f\d\fdf818fb9a5362495b87d39f90f1c1ca5c215796
-Å
-Q.idea/sonarlint/securityhotspotstore/0/b/0ba1b9c7a4878802f938e331cc2d8a042087ec6b,a\b\abe25e851ee828e40a94fcb1c1be6f78ff7a04cf
 w
 G.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec,8\6\863e0292fd7e9b3e74dafd6cc01f73ba76346482
 V
@@ -22,11 +16,7 @@ Z
 *src/main/java/org/example/FileManager.java,1\9\1912b2a124c0d9c3c12381f7a19f93c7433bdd97
 X
 (src/main/java/org/example/Validator.java,4\2\42a8dd364ef97cd563ca3ee3f18dac1662718074
-Y
-)src/main/java/org/example/BruteForce.java,5\d\5de6ffb750507c77280c3e79fae3d2321675a118
-]
--src/main/java/org/example/StaticAnalyzer.java,5\e\5e121b24b24c35de03cd8d65326b87ca5444c18a
-`
-0src/main/java/org/example/ReadFileException.java,4\8\485844c48b4ba4c0412618b7ce05c34de542ded9
 \
 ,src/main/java/org/example/FileException.java,9\b\9b30427582424db062b5420c20c7eeaef834b94b
+[
++src/main/java/org/example/ui/ScreenApp.java,1\f\1f171583c0a47f6343b7790d303402ea5acc3a04

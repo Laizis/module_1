@@ -12,7 +12,7 @@ import java.util.Scanner;
  **/
 public class FileManager {
 
-    public String readFile(String filePath) {
+    public static String readFile(String filePath) {
         boolean fileExists = Validator.isFileExists(filePath);
         boolean correctFileFormat = Validator.isCorrectFileFormat(filePath);
         StringBuilder stringBuilder = new StringBuilder();
@@ -33,7 +33,7 @@ public class FileManager {
 
     }
 
-    public void writeFile(String content, String filePath) {
+    public static void writeFile(String content, String filePath) {
         boolean fileExists = Validator.isFileExists(filePath);
         boolean correctFileFormat = Validator.isCorrectFileFormat(filePath);
 

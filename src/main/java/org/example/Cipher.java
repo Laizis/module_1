@@ -25,7 +25,11 @@ public class Cipher {
         char[] textToCharArray = text.toLowerCase().toCharArray();
         if (Validator.isValidKey(shift, alphabet)) {
             for (char characterFromText : textToCharArray) {
+
                 if (Character.isLetter(characterFromText)) {
+                    if (!alphabet.contains(characterFromText)) {
+                        continue;
+                    }
                     int indexNewCharacter = alphabet.indexOf(characterFromText) + shift;
                     char encryptLetter = indexNewCharacter > alphabet.size() - 1 ? alphabet.get(indexNewCharacter - alphabet.size()) : alphabet.get(indexNewCharacter);
                     stringBuilder.append(encryptLetter);
@@ -36,7 +40,7 @@ public class Cipher {
             }
             return stringBuilder.toString();
         } else {
-            throw new IndexOutOfBoundsException("Некоректно указан сдвиг");
+            throw new IndexOutOfBoundsException("Указанный сдвиг больше или меньше допустимого возможного значения");
         }
     }
 
@@ -44,6 +48,26 @@ public class Cipher {
      * Возвращает расшифрованную  строку со сдвигом на shift
      **/
     public String decrypt(String encryptedText, int shift) {
-        return null;
+        StringBuilder stringBuilder = new StringBuilder();
+        char[] textToCharArray = encryptedText.toLowerCase().toCharArray();
+        if (Validator.isValidKey(shift, alphabet)) {
+            for (char characterFromText : textToCharArray) {
+
+                if (Character.isLetter(characterFromText)) {
+                    if (!alphabet.contains(characterFromText)) {
+                        continue;
+                    }
+                    int indexNewCharacter = alphabet.indexOf(characterFromText) - shift;
+                    char decryptLetter = indexNewCharacter < 0 ? alphabet.get(alphabet.size() + indexNewCharacter) : alphabet.get(indexNewCharacter);
+                    stringBuilder.append(decryptLetter);
+                } else {
+                    stringBuilder.append(characterFromText);
+                }
+
+            }
+            return stringBuilder.toString();
+        } else {
+            throw new IndexOutOfBoundsException("Указанный сдвиг больше или меньше допустимого возможного значения");
+        }
     }
 }
