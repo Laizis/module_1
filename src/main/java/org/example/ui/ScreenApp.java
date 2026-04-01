@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 
 
 public class ScreenApp extends Application {
-    /** Режим, выбранный на первом экране (пример «логики по кнопке»). */
     private String selectedMode;
     @Override
     public void start(Stage primaryStage) {
@@ -49,7 +48,6 @@ public class ScreenApp extends Application {
         send.setOnAction(e -> {
             String p1 = path1.getText().trim();
             String p2 = path2.getText().trim();
-            // ваша логика «отправки»: копирование, чтение, HTTP и т.д.
             System.out.println("Режим=" + selectedMode + ", file1=" + p1 + ", file2=" + p2);
         });
         Button back = new Button("Назад");

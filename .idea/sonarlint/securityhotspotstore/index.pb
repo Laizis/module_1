@@ -20,3 +20,11 @@ X
 ,src/main/java/org/example/FileException.java,9\b\9b30427582424db062b5420c20c7eeaef834b94b
 [
 +src/main/java/org/example/ui/ScreenApp.java,1\f\1f171583c0a47f6343b7790d303402ea5acc3a04
+a
+1src/main/java/org/example/validate/Validator.java,3\f\3f639a43fda1f8b7d27a8153d8233f334e08ae01
+e
+5src/main/java/org/example/validate/FileException.java,3\f\3f7d10fd412e80ca42d0104577086097f355eb73
+d
+4src/main/java/org/example/fileutils/FileManager.java,b\4\b4090e32c7bbc5ac4d26ecbaee04f09e3829d484
+X
+(src/main/java/org/example/mainlogic.java,a\e\aee960e2c616b619906c3c374d6cf161b42d3674

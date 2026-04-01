@@ -1,4 +1,7 @@
-package org.example;
+package org.example.fileutils;
+
+import org.example.validate.FileException;
+import org.example.validate.Validator;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -25,11 +28,11 @@ public class FileManager {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-
-            return stringBuilder.toString();
         } else {
-            throw new FileException("Ошибка при чтении из файла/файл не существует");
+            if (!fileExists) throw new FileException("Ошибка при записи в файл/файл не существует");
+            else if (!correctFileFormat) throw new FileException("Ожидаемый формат файла .txt");
         }
+        return stringBuilder.toString();
 
     }
 
@@ -47,7 +50,8 @@ public class FileManager {
                 e.printStackTrace();
             }
         } else {
-            throw new FileException("Ошибка при записи в файл/файл не существует");
+            if (!fileExists) throw new FileException("Ошибка при записи в файл/файл не существует");
+            else if (!correctFileFormat) throw new FileException("Ожидаемый формат файла .txt");
         }
     }
 }

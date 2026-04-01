@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.example.fileutils.FileManager;
 
 
 public class MainApp extends Application {
@@ -17,10 +18,8 @@ public class MainApp extends Application {
     private static String outputPathFile;
     private static int shift;
 
-    public static void main(String[] args) throws Exception {
-
+    public static void main(String[] args){
         launch();
-        System.out.println(selectedMode);
         Cipher cipher = new Cipher();
         String content = FileManager.readFile(inputPathFile);
         String result = null;
@@ -51,7 +50,7 @@ public class MainApp extends Application {
             selectedMode = "decrypt";
             stage.setScene(buildSecondScene(stage));
         });
-        VBox root = new VBox(10, btnA, btnB);
+        VBox root = new VBox(10, label, btnA, btnB);
         root.setPadding(new Insets(60));
         return new Scene(root, 260, 200);
     }
