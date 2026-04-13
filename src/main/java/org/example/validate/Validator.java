@@ -9,7 +9,7 @@ import java.util.List;
  **/
 public class Validator {
     public static boolean isValidKey(int key, List<Character> alphabet) {
-        if (key <= alphabet.size() - 1) {
+        if (key <= alphabet.size() - 1 && key > 0) {
             return true;
         } else {
             return false;
@@ -21,7 +21,7 @@ public class Validator {
     }
 
     public static boolean isCorrectFileFormat(String filePath) {
-        return filePath.endsWith("txt");
+        return filePath.endsWith(".txt");
     }
 
 }

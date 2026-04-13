@@ -27,7 +27,6 @@ public class Cipher {
         char[] textToCharArray = text.toLowerCase().toCharArray();
         if (Validator.isValidKey(shift, alphabet)) {
             for (char characterFromText : textToCharArray) {
-
                 if (Character.isLetter(characterFromText)) {
                     if (!alphabet.contains(characterFromText)) {
                         continue;

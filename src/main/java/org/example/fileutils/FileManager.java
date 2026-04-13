@@ -4,11 +4,7 @@ import org.example.validate.FileException;
 import org.example.validate.Validator;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
-import java.util.Scanner;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Чтение и запись файлов
@@ -20,13 +16,15 @@ public class FileManager {
         boolean correctFileFormat = Validator.isCorrectFileFormat(filePath);
         StringBuilder stringBuilder = new StringBuilder();
         if (fileExists && correctFileFormat) {
-            final Path path = Paths.get(filePath);
-            try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(Files.newInputStream(path, StandardOpenOption.READ)))) {
+            try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath, StandardCharsets.UTF_8))) {
                 while (bufferedReader.ready()) {
                     stringBuilder.append(bufferedReader.readLine());
+                    if (bufferedReader.ready()) {
+                        stringBuilder.append('\n');
+                    }
                 }
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                throw new FileException(String.format("Непредвиденная ошибка вычитка из файла %s", filePath));
             }
         } else {
             if (!fileExists) throw new FileException("Ошибка при записи в файл/файл не существует");
@@ -41,13 +39,10 @@ public class FileManager {
         boolean correctFileFormat = Validator.isCorrectFileFormat(filePath);
 
         if (fileExists && correctFileFormat) {
-            try (Scanner scanner = new Scanner(content);
-                 BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filePath))) {
-                while (scanner.hasNext()) {
-                    bufferedWriter.write(scanner.nextLine());
-                }
+            try (Writer writer = new FileWriter(filePath, StandardCharsets.UTF_8)) {
+                writer.write(content);
             } catch (IOException e) {
-                e.printStackTrace();
+                throw new FileException(String.format("Непредвиденная ошибка записи в файл %s", filePath));
             }
         } else {
             if (!fileExists) throw new FileException("Ошибка при записи в файл/файл не существует");
